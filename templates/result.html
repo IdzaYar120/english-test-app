@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат тесту</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 50px; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #28a745; }
+        .score { font-size: 48px; font-weight: bold; margin: 20px 0; color: #333; }
+        .btn { display: inline-block; padding: 10px 20px; color: white; background-color: #007BFF; text-decoration: none; border-radius: 5px; margin-top: 20px;}
+        .btn:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Тест завершено!</h1>
+        <p>Студент: <strong>{{ student }}</strong></p>
+        <div class="score">
+            {{ score }} / {{ total }}
+        </div>
+        <p>Твій результат.</p>
+        <a href="/" class="btn">Повернутися на головну</a>
+    </div>
+</body>
+</html>
