@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Result</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 50px; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 50px 20px; margin: 0; }
+        .container { width: 95%; max-width: 500px; box-sizing: border-box; margin: auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         h1 { color: #28a745; }
         .score { font-size: 48px; font-weight: bold; margin: 20px 0; color: #333; }
         .btn { display: inline-block; padding: 10px 20px; color: white; background-color: #007BFF; text-decoration: none; border-radius: 5px; margin-top: 20px;}
         .btn:hover { background-color: #0056b3; }
+        
+        @media (max-width: 600px) {
+            body { padding: 20px 10px; }
+            .container { padding: 20px; }
+            .score { font-size: 36px; padding: 15px; }
+            .btn { width: 100%; box-sizing: border-box; }
+        }
     </style>
 </head>
 <body>
