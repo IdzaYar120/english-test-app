@@ -45,7 +45,7 @@ def show_test(student_id):
         
         # Якщо файл з відповідями ще не створено
         if not correct_answers:
-            return "Помилка: Ключі до цього тесту ще не завантажені на сервер.", 404
+            return "Error: The answer key for this test has not been uploaded to the server yet.", 404
 
         score = 0
         total_questions = len(correct_answers)
@@ -57,8 +57,8 @@ def show_test(student_id):
             if user_answer == correct_ans:
                 score += 1
         
-        student_name = request.form.get('student_name', 'Невідомо').strip()
-        student_group = request.form.get('student_group', 'Невідомо').strip()
+        student_name = request.form.get('student_name', 'Unknown').strip()
+        student_group = request.form.get('student_group', 'Unknown').strip()
         
         save_result(student_id, student_name, student_group, score, total_questions)
         
@@ -71,7 +71,7 @@ def show_test(student_id):
     if os.path.exists(template_path):
         return render_template(template_name)
     else:
-        return "Сторінка тесту ще не створена.", 404
+        return "The test page has not been created yet.", 404
 
 @app.route('/results')
 def show_results():

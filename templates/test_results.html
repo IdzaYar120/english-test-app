@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Результати тестів</title>
+    <title>Test Results</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 20px; }
         .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
@@ -18,17 +18,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Результати проходження тестів</h1>
+        <h1>Test Completion Results</h1>
         
         {% if results %}
         <table>
             <thead>
                 <tr>
-                    <th>ПІБ</th>
-                    <th>Група</th>
-                    <th>Пройдений тест</th>
-                    <th>Результат</th>
-                    <th>Відсоток</th>
+                    <th>Full Name</th>
+                    <th>Group</th>
+                    <th>Test Module</th>
+                    <th>Score</th>
+                    <th>Percentage</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,10 +50,10 @@
             </tbody>
         </table>
         {% else %}
-        <p class="empty-state">Ще немає жодного результату. Будьте першим!</p>
+        <p class="empty-state">There are no results yet. Be the first!</p>
         {% endif %}
 
-        <a href="/" class="btn">Повернутися на головну</a>
+        <a href="/" class="btn">Return to Home</a>
     </div>
 </body>
 </html>
