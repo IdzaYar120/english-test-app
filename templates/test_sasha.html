@@ -24,17 +24,18 @@
 </head>
 <body>
 
-<div class="container">
+<button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer;">🌓</button>
+<div class="container" id="mainContainer">
     <a href="/" style="display: inline-block; margin-bottom: 20px; color: #3b82f6; text-decoration: none; font-weight: bold;">← Back to List</a>
     <form action="#" method="POST" autocomplete="off" spellcheck="false">
     <h1>Sasha's English Proficiency Test</h1>
 
-    <div style="background: #f1f5f9; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #3b82f6;">
+    <div id="infoBox" style="background: #f1f5f9; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #3b82f6;">
         <p style="margin-top: 0; font-weight: bold;">Full Name (First, Last):</p>
-        <input type="text" name="student_name" placeholder="E.g., John Doe" required style="margin-bottom: 15px; max-width: 100%;">
+        <input type="text" name="student_name" placeholder="E.g., John Doe" required style="margin-bottom: 15px; max-width: 100%; background: white; color: black; border: 2px solid #cbd5e1;">
         
         <p style="font-weight: bold;">Group:</p>
-        <input type="text" name="student_group" placeholder="E.g., KN-21" required style="max-width: 100%;">
+        <input type="text" name="student_group" placeholder="E.g., KN-21" required style="max-width: 100%; background: white; color: black; border: 2px solid #cbd5e1;">
     </div>
 
     <div class="section-title">Part 1: Conditionals (0-3)</div>
@@ -103,9 +104,66 @@
     <div class="question"><p>30. I am interested _______ learning English.</p>
         <div class="options"><label><input type="radio" name="q30" value="a"> a) on</label><label><input type="radio" name="q30" value="b"> b) in</label><label><input type="radio" name="q30" value="c"> c) at</label></div></div>
 
-        <button type="submit" style="width: 100%; margin-top: 30px;">Submit Answers</button>
+        <button type="submit" id="submitBtn" style="width: 100%; margin-top: 30px;">Submit Answers</button>
     </form>
 </div>
+
+<script>
+    function applyTheme(isDark) {
+        const body = document.body;
+        const container = document.getElementById('mainContainer');
+        const infoBox = document.getElementById('infoBox');
+        const h1 = document.querySelector('h1');
+        const questions = document.querySelectorAll('.question');
+        const inputs = document.querySelectorAll('input[type="text"]');
+        
+        if (isDark) {
+            body.style.backgroundColor = '#121212';
+            body.style.color = '#cccccc';
+            container.style.backgroundColor = '#1e1e1e';
+            container.style.boxShadow = '0 4px 20px rgba(255,255,255,0.05)';
+            infoBox.style.backgroundColor = '#2a2a2a';
+            
+            h1.style.color = '#ffffff';
+            h1.style.borderBottomColor = '#1d4ed8'; // Darker blue line
+            
+            questions.forEach(q => q.style.backgroundColor = '#2a2a2a');
+            inputs.forEach(i => {
+                i.style.backgroundColor = '#333';
+                i.style.color = '#fff';
+                i.style.borderColor = '#555';
+            });
+        } else {
+            body.style.backgroundColor = '#f0f2f5';
+            body.style.color = '#1a1a1a';
+            container.style.backgroundColor = 'white';
+            container.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+            infoBox.style.backgroundColor = '#f1f5f9';
+            
+            h1.style.color = '#1e3a8a';
+            h1.style.borderBottomColor = '#3b82f6';
+            
+            questions.forEach(q => q.style.backgroundColor = '#fafafa');
+            inputs.forEach(i => {
+                i.style.backgroundColor = 'white';
+                i.style.color = 'black';
+                i.style.borderColor = '#cbd5e1';
+            });
+        }
+    }
+
+    function toggleTheme() {
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme === 'dark');
+    }
+
+    // Apply on load
+    if (localStorage.getItem('theme') === 'dark') {
+        applyTheme(true);
+    }
+</script>
 
 </body>
 </html>

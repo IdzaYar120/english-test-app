@@ -16,19 +16,20 @@
     </style>
 </head>
 <body>
-    <div class="test-container">
+    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer;">🌓</button>
+    <div class="test-container" id="mainContainer">
         <a href="/" class="back-link">← Back to List</a>
         <h1>English Grammar Test</h1>
         <p>Complete the following questions. Topics: Tenses, Conditionals, Gerunds & Infinitives.</p>
 
         <form action="#" method="POST" autocomplete="off" spellcheck="false">
             
-            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #007BFF;">
+            <div id="infoBox" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #007BFF;">
                 <p style="margin-top: 0;"><strong>Full Name (First, Last):</strong></p>
-                <input type="text" name="student_name" placeholder="E.g., John Doe" required style="margin-bottom: 15px;">
+                <input type="text" name="student_name" placeholder="E.g., John Doe" required style="margin-bottom: 15px; background: white; color: black; border: 1px solid #ccc;">
                 
                 <p><strong>Group:</strong></p>
-                <input type="text" name="student_group" placeholder="E.g., KN-21" required>
+                <input type="text" name="student_group" placeholder="E.g., KN-21" required style="background: white; color: black; border: 1px solid #ccc;">
             </div>
 
             <h2>Part 1: Multiple Choice (20 questions)</h2>
@@ -184,5 +185,58 @@
             <button type="submit" class="submit-btn">Submit Answers</button>
         </form>
     </div>
+
+    <script>
+        function applyTheme(isDark) {
+            const body = document.body;
+            const container = document.getElementById('mainContainer');
+            const infoBox = document.getElementById('infoBox');
+            const h1_h2s = document.querySelectorAll('h1, h2');
+            const questions = document.querySelectorAll('.question');
+            const inputs = document.querySelectorAll('input[type="text"]');
+            
+            if (isDark) {
+                body.style.backgroundColor = '#121212';
+                body.style.color = '#cccccc';
+                container.style.backgroundColor = '#1e1e1e';
+                container.style.boxShadow = '0 2px 10px rgba(255,255,255,0.05)';
+                infoBox.style.backgroundColor = '#2a2a2a';
+                
+                h1_h2s.forEach(h => h.style.color = '#ffffff');
+                questions.forEach(q => q.style.borderColor = '#444');
+                inputs.forEach(i => {
+                    i.style.backgroundColor = '#333';
+                    i.style.color = '#fff';
+                    i.style.borderColor = '#555';
+                });
+            } else {
+                body.style.backgroundColor = '#fdfdfd';
+                body.style.color = '#000000';
+                container.style.backgroundColor = 'white';
+                container.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                infoBox.style.backgroundColor = '#f8f9fa';
+                
+                h1_h2s.forEach(h => h.style.color = '#2c3e50');
+                questions.forEach(q => q.style.borderColor = '#eee');
+                inputs.forEach(i => {
+                    i.style.backgroundColor = 'white';
+                    i.style.color = 'black';
+                    i.style.borderColor = '#ccc';
+                });
+            }
+        }
+
+        function toggleTheme() {
+            let currentTheme = localStorage.getItem('theme') || 'light';
+            let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme === 'dark');
+        }
+
+        // Apply on load
+        if (localStorage.getItem('theme') === 'dark') {
+            applyTheme(true);
+        }
+    </script>
 </body>
 </html>

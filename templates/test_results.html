@@ -17,8 +17,9 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Test Completion Results</h1>
+    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer;">🌓</button>
+    <div class="container" id="mainContainer">
+        <h1 id="mainTitle">Test Completion Results</h1>
         
         {% if results %}
         <table>
@@ -50,10 +51,64 @@
             </tbody>
         </table>
         {% else %}
-        <p class="empty-state">There are no results yet. Be the first!</p>
+        <p class="empty-state" id="emptyStateText">There are no results yet. Be the first!</p>
         {% endif %}
 
         <a href="/" class="btn">Return to Home</a>
     </div>
+
+    <script>
+        function applyTheme(isDark) {
+            const body = document.body;
+            const container = document.getElementById('mainContainer');
+            const mainTitle = document.getElementById('mainTitle');
+            const emptyState = document.getElementById('emptyStateText');
+            const tableRows = document.querySelectorAll('tbody tr');
+            const tableCells = document.querySelectorAll('td');
+            
+            if (isDark) {
+                body.style.backgroundColor = '#121212';
+                container.style.backgroundColor = '#1e1e1e';
+                container.style.boxShadow = '0 4px 8px rgba(255,255,255,0.05)';
+                if(mainTitle) mainTitle.style.color = '#ffffff';
+                if(emptyState) emptyState.style.color = '#cccccc';
+                
+                tableCells.forEach(td => td.style.color = '#dddddd');
+                
+                // Hacky hover alternative mapping inline
+                tableRows.forEach(tr => {
+                    tr.style.backgroundColor = 'transparent';
+                    tr.onmouseover = () => tr.style.backgroundColor = '#2a2a2a';
+                    tr.onmouseout = () => tr.style.backgroundColor = 'transparent';
+                });
+            } else {
+                body.style.backgroundColor = '#f4f4f9';
+                container.style.backgroundColor = 'white';
+                container.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                if(mainTitle) mainTitle.style.color = '#333';
+                if(emptyState) emptyState.style.color = '#777';
+                
+                tableCells.forEach(td => td.style.color = '#000000');
+                
+                tableRows.forEach(tr => {
+                    tr.style.backgroundColor = 'transparent';
+                    tr.onmouseover = () => tr.style.backgroundColor = '#f5f5f5';
+                    tr.onmouseout = () => tr.style.backgroundColor = 'transparent';
+                });
+            }
+        }
+
+        function toggleTheme() {
+            let currentTheme = localStorage.getItem('theme') || 'light';
+            let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme === 'dark');
+        }
+
+        // Apply on load
+        if (localStorage.getItem('theme') === 'dark') {
+            applyTheme(true);
+        }
+    </script>
 </body>
 </html>
