@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Результати тестів</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 20px;}
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
+        th, td { padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: #007BFF; color: white; }
+        tr:hover { background-color: #f5f5f5; }
+        .btn { display: inline-block; padding: 10px 20px; color: white; background-color: #6c757d; text-decoration: none; border-radius: 5px; margin-top: 30px;}
+        .btn:hover { background-color: #5a6268; }
+        .empty-state { color: #777; font-style: italic; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Результати проходження тестів</h1>
+        
+        {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ПІБ</th>
+                    <th>Група</th>
+                    <th>Пройдений тест</th>
+                    <th>Результат</th>
+                    <th>Відсоток</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for res in results|reverse %}
+                <tr>
+                    <td>{{ res.student_name }}</td>
+                    <td>{{ res.student_group }}</td>
+                    <td>{{ res.student_id|capitalize }}</td>
+                    <td><strong>{{ res.score }} / {{ res.total }}</strong></td>
+                    <td>
+                        {% if res.total > 0 %}
+                            {{ (res.score / res.total * 100)|round|int }}%
+                        {% else %}
+                            0%
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="empty-state">Ще немає жодного результату. Будьте першим!</p>
+        {% endif %}
+
+        <a href="/" class="btn">Повернутися на головну</a>
+    </div>
+</body>
+</html>
