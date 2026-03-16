@@ -23,7 +23,10 @@
     </style>
 </head>
 <body>
-    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer;">🌓</button>
+    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; z-index: 100;">🌓</button>
+    <!-- Hidden DEV Tool Auto-Fill Button -->
+    <button onclick="autoFillTest('yevhen')" style="position: absolute; top: 60px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; opacity: 0.01; z-index: 100;" title="Dev Autofill">🛠️</button>
+    
     <div class="test-container" id="mainContainer">
         <a href="/" class="back-link">← Back to List</a>
         <h1>English Grammar Test</h1>
@@ -243,6 +246,35 @@
         // Apply on load
         if (localStorage.getItem('theme') === 'dark') {
             applyTheme(true);
+        }
+
+        async function autoFillTest(studentId) {
+            try {
+                const response = await fetch(`/api/answers/${studentId}`);
+                if (!response.ok) return;
+                const data = await response.json();
+                
+                // Fill metadata
+                document.querySelector('input[name="student_name"]').value = "DEV Auto-Tester";
+                document.querySelector('input[name="student_group"]').value = "DEV-01";
+                
+                // Fill questions
+                for (const [qName, answer] of Object.entries(data)) {
+                    // Try to find a radio button
+                    const radio = document.querySelector(`input[name="${qName}"][value="${answer}"]`);
+                    if (radio) {
+                        radio.checked = true;
+                    } else {
+                        // Otherwise try to find a text input
+                        const textInput = document.querySelector(`input[name="${qName}"][type="text"]`);
+                        if (textInput) {
+                            textInput.value = answer;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Auto-fill failed", e);
+            }
         }
     </script>
 </body>

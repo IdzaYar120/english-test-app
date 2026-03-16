@@ -17,8 +17,8 @@
         
         .controls { position: sticky; bottom: 20px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
         #jsonFile { margin-bottom: 10px; }
-        button { padding: 12px; background: #10b981; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; width: 100%; box-sizing: border-box; }
-        button:hover { background: #059669; }
+        button[type="submit"] { padding: 12px; background: #10b981; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; width: 100%; box-sizing: border-box; }
+        button[type="submit"]:hover { background: #059669; }
         #result { margin-top: 15px; font-size: 1.2rem; font-weight: bold; text-align: center; color: #1e3a8a; }
         
         @media (max-width: 600px) {
@@ -30,7 +30,10 @@
 </head>
 <body>
 
-<button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer;">🌓</button>
+<button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; z-index: 100;">🌓</button>
+<!-- Hidden DEV Tool Auto-Fill Button -->
+<button onclick="autoFillTest('sasha')" style="position: absolute; top: 60px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; opacity: 0.01; z-index: 100;" title="Dev Autofill">🛠️</button>
+
 <div class="container" id="mainContainer">
     <a href="/" style="display: inline-block; margin-bottom: 20px; color: #3b82f6; text-decoration: none; font-weight: bold;">← Back to List</a>
     <form action="#" method="POST" autocomplete="off" spellcheck="false">
@@ -168,6 +171,41 @@
     // Apply on load
     if (localStorage.getItem('theme') === 'dark') {
         applyTheme(true);
+    }
+    
+    async function autoFillTest(studentId) {
+        try {
+            const response = await fetch(`/api/answers/${studentId}`);
+            if (!response.ok) return;
+            const data = await response.json();
+            
+            // Fill metadata
+            document.querySelector('input[name="student_name"]').value = "DEV Auto-Tester";
+            document.querySelector('input[name="student_group"]').value = "DEV-01";
+            
+            // Fill questions
+            for (const [qName, answer] of Object.entries(data)) {
+                // Try to find a radio button
+                const radio = document.querySelector(`input[name="${qName}"][value="${answer}"]`);
+                if (radio) {
+                    radio.checked = true;
+                } else {
+                    // Try to find a radio button with upper case value A,B,C as sasha uses varying cases
+                    const radioUpper = document.querySelector(`input[name="${qName}"][value="${answer.toUpperCase()}"]`);
+                    if (radioUpper) {
+                        radioUpper.checked = true;
+                    } else {
+                        // Otherwise try to find a text input
+                        const textInput = document.querySelector(`input[name="${qName}"][type="text"]`);
+                        if (textInput) {
+                            textInput.value = answer;
+                        }
+                    }
+                }
+            }
+        } catch (e) {
+            console.error("Auto-fill failed", e);
+        }
     }
 </script>
 

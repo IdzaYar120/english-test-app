@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English for Programmers: Tenses & Conditionals</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; padding: 20px; margin: 0; }
+        .container { width: 95%; max-width: 800px; box-sizing: border-box; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1, h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+        .question { background: #fff; padding: 15px 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #bdc3c7; transition: 0.3s; }
+        .question p { font-weight: bold; margin-top: 0; }
+        label { display: block; margin-bottom: 8px; cursor: pointer; }
+        input[type="text"] { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button[type="submit"] { background-color: #3498db; color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 5px; cursor: pointer; display: block; width: 100%; margin-top: 20px; box-sizing: border-box; }
+        button[type="submit"]:hover { background-color: #2980b9; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #3498db; text-decoration: none; font-weight: bold; }
+        
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; z-index: 100;">🌓</button>
+    <!-- Hidden DEV Tool Auto-Fill Button -->
+    <button onclick="autoFillTest('denys')" style="position: absolute; top: 60px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; opacity: 0.01; z-index: 100;" title="Dev Autofill">🛠️</button>
+    
+    <div class="container" id="mainContainer">
+        <a href="/" class="back-link">← Back to List</a>
+        <h1>Test: English for Programmers 💻</h1>
+        
+        <form action="#" method="POST" autocomplete="off" spellcheck="false" id="quizForm">
+            
+            <div id="infoBox" style="background: #eaf2f8; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #3498db;">
+                <p style="margin-top: 0;"><strong>Full Name (First, Last):</strong></p>
+                <input type="text" name="student_name" placeholder="E.g., John Doe" required style="margin-bottom: 15px; background: white; color: black; border: 1px solid #ccc;">
+                
+                <p><strong>Group:</strong></p>
+                <input type="text" name="student_group" placeholder="E.g., KN-21" required style="background: white; color: black; border: 1px solid #ccc;">
+            </div>
+
+            <h2>Tenses</h2>
+        <div class="question" id="question-1">
+            <p>1. He usually ___ code in Python.</p>
+            <label><input type="radio" name="q1" value="a"> a) writes</label>
+            <label><input type="radio" name="q1" value="b"> b) wrote</label>
+            <label><input type="radio" name="q1" value="c"> c) will write</label>
+        </div>
+        <div class="question" id="question-2">
+            <p>2. We ___ the bug yesterday.</p>
+            <label><input type="radio" name="q2" value="a"> a) fix</label>
+            <label><input type="radio" name="q2" value="b"> b) fixed</label>
+            <label><input type="radio" name="q2" value="c"> c) are fixing</label>
+        </div>
+        <div class="question" id="question-3">
+            <p>3. The system ___ the data tomorrow.</p>
+            <label><input type="radio" name="q3" value="a"> a) processes</label>
+            <label><input type="radio" name="q3" value="b"> b) processed</label>
+            <label><input type="radio" name="q3" value="c"> c) will process</label>
+        </div>
+        <div class="question" id="question-4">
+            <p>4. They ___ a new app right now.</p>
+            <label><input type="radio" name="q4" value="a"> a) are developing</label>
+            <label><input type="radio" name="q4" value="b"> b) develop</label>
+            <label><input type="radio" name="q4" value="c"> c) developed</label>
+        </div>
+        <div class="question" id="question-5">
+            <p>5. I ___ the code when the power went out.</p>
+            <label><input type="radio" name="q5" value="a"> a) compile</label>
+            <label><input type="radio" name="q5" value="b"> b) was compiling</label>
+            <label><input type="radio" name="q5" value="c"> c) have compiled</label>
+        </div>
+        <div class="question" id="question-6">
+            <p>6. She ___ the database yet.</p>
+            <label><input type="radio" name="q6" value="a"> a) didn't update</label>
+            <label><input type="radio" name="q6" value="b"> b) wasn't updating</label>
+            <label><input type="radio" name="q6" value="c"> c) hasn't updated</label>
+        </div>
+        <div class="question" id="question-7">
+            <p>7. The server had crashed before we ___ the backup.</p>
+            <label><input type="radio" name="q7" value="a"> a) made</label>
+            <label><input type="radio" name="q7" value="b"> b) make</label>
+            <label><input type="radio" name="q7" value="c"> c) have made</label>
+        </div>
+
+        <div class="question" id="question-8">
+            <p>8. Перекладіть: Я зараз рефакторю старий (legacy) код, поки моя команда обговорює нову архітектуру.</p>
+            <input type="text" name="q8" placeholder="Ваша відповідь...">
+        </div>
+        <div class="question" id="question-9">
+            <p>9. Перекладіть: Вчора ввечері він виправив критичну вразливість у базі даних.</p>
+            <input type="text" name="q9" placeholder="Ваша відповідь...">
+        </div>
+        <div class="question" id="question-10">
+            <p>10. Перекладіть (Future Perfect): Наша команда вже задеплоїть цей додаток до завтрашнього вечора.</p>
+            <input type="text" name="q10" placeholder="Ваша відповідь...">
+        </div>
+        <h2>Умовні речення (Conditionals)</h2>
+        
+        <h3>Zero Conditional</h3>
+        <div class="question" id="question-11">
+            <p>11. If you ___ by zero, the program throws an error.</p>
+            <label><input type="radio" name="q11" value="a"> a) divide</label>
+            <label><input type="radio" name="q11" value="b"> b) divided</label>
+            <label><input type="radio" name="q11" value="c"> c) will divide</label>
+        </div>
+        <div class="question" id="question-12">
+            <p>12. If the server ___ down, the website is unavailable.</p>
+            <label><input type="radio" name="q12" value="a"> a) will go</label>
+            <label><input type="radio" name="q12" value="b"> b) goes</label>
+            <label><input type="radio" name="q12" value="c"> c) went</label>
+        </div>
+        <div class="question" id="question-13">
+            <p>13. The loop ___ if the condition is false.</p>
+            <label><input type="radio" name="q13" value="a"> a) stopped</label>
+            <label><input type="radio" name="q13" value="b"> b) will stop</label>
+            <label><input type="radio" name="q13" value="c"> c) stops</label>
+        </div>
+        <div class="question" id="question-14">
+            <p>14. If you press Ctrl+C, it ___ the process.</p>
+            <label><input type="radio" name="q14" value="a"> a) kills</label>
+            <label><input type="radio" name="q14" value="b"> b) killed</label>
+            <label><input type="radio" name="q14" value="c"> c) has killed</label>
+        </div>
+        <div class="question" id="question-15">
+            <p>15. Складіть одне речення (Type 0): A user attempts to access a restricted endpoint without a valid token. The middleware immediately throws a 403 error.</p>
+            <input type="text" name="q15" placeholder="If...">
+        </div>
+
+        <h3>First Conditional</h3>
+        <div class="question" id="question-16">
+            <p>16. If we finish the code today, we ___ it tomorrow.</p>
+            <label><input type="radio" name="q16" value="a"> a) deploy</label>
+            <label><input type="radio" name="q16" value="b"> b) will deploy</label>
+            <label><input type="radio" name="q16" value="c"> c) deployed</label>
+        </div>
+        <div class="question" id="question-17">
+            <p>17. If there ___ a syntax error, the compiler will complain.</p>
+            <label><input type="radio" name="q17" value="a"> a) will be</label>
+            <label><input type="radio" name="q17" value="b"> b) was</label>
+            <label><input type="radio" name="q17" value="c"> c) is</label>
+        </div>
+        <div class="question" id="question-18">
+            <p>18. The client will be happy if we ___ the deadline.</p>
+            <label><input type="radio" name="q18" value="a"> a) meet</label>
+            <label><input type="radio" name="q18" value="b"> b) will meet</label>
+            <label><input type="radio" name="q18" value="c"> c) met</label>
+        </div>
+        <div class="question" id="question-19">
+            <p>19. If you don't save your work, you ___ it.</p>
+            <label><input type="radio" name="q19" value="a"> a) lose</label>
+            <label><input type="radio" name="q19" value="b"> b) will lose</label>
+            <label><input type="radio" name="q19" value="c"> c) lost</label>
+        </div>
+        <div class="question" id="question-20">
+            <p>20. Складіть одне речення (Type 1): We optimize the database queries. The application load time will decrease significantly.</p>
+            <input type="text" name="q20" placeholder="If...">
+        </div>
+
+        <h3>Second Conditional</h3>
+        <div class="question" id="question-21">
+            <p>21. If I ___ more RAM, I would run this virtual machine.</p>
+            <label><input type="radio" name="q21" value="a"> a) have</label>
+            <label><input type="radio" name="q21" value="b"> b) will have</label>
+            <label><input type="radio" name="q21" value="c"> c) had</label>
+        </div>
+        <div class="question" id="question-22">
+            <p>22. If he knew C++, he ___ the game engine.</p>
+            <label><input type="radio" name="q22" value="a"> a) would write</label>
+            <label><input type="radio" name="q22" value="b"> b) will write</label>
+            <label><input type="radio" name="q22" value="c"> c) wrote</label>
+        </div>
+        <div class="question" id="question-23">
+            <p>23. We would release the app if it ___ ready.</p>
+            <label><input type="radio" name="q23" value="a"> a) is</label>
+            <label><input type="radio" name="q23" value="b"> b) were</label>
+            <label><input type="radio" name="q23" value="c"> c) will be</label>
+        </div>
+        <div class="question" id="question-24">
+            <p>24. If you ___ the logs, you wouldn't ask this.</p>
+            <label><input type="radio" name="q24" value="a"> a) check</label>
+            <label><input type="radio" name="q24" value="b"> b) will check</label>
+            <label><input type="radio" name="q24" value="c"> c) checked</label>
+        </div>
+        <div class="question" id="question-25">
+            <p>25. Складіть одне речення (Type 2): I am not a DevOps engineer. I don't know how to configure this Kubernetes cluster.</p>
+            <input type="text" name="q25" placeholder="If...">
+        </div>
+        <h3>Third Conditional</h3>
+        <div class="question" id="question-26">
+            <p>26. If we had tested the app, it ___ crashed.</p>
+            <label><input type="radio" name="q26" value="a"> a) wouldn't have</label>
+            <label><input type="radio" name="q26" value="b"> b) hadn't</label>
+            <label><input type="radio" name="q26" value="c"> c) won't have</label>
+        </div>
+        <div class="question" id="question-27">
+            <p>27. If she ___ the commit, we would have lost the code.</p>
+            <label><input type="radio" name="q27" value="a"> a) didn't push</label>
+            <label><input type="radio" name="q27" value="b"> b) hadn't pushed</label>
+            <label><input type="radio" name="q27" value="c"> c) doesn't push</label>
+        </div>
+        <div class="question" id="question-28">
+            <p>28. The hacker wouldn't have accessed the DB if you ___ it.</p>
+            <label><input type="radio" name="q28" value="a"> a) secured</label>
+            <label><input type="radio" name="q28" value="b"> b) secure</label>
+            <label><input type="radio" name="q28" value="c"> c) had secured</label>
+        </div>
+        <div class="question" id="question-29">
+            <p>29. If I had seen the email, I ___ to the server outage.</p>
+            <label><input type="radio" name="q29" value="a"> a) would have responded</label>
+            <label><input type="radio" name="q29" value="b"> b) would respond</label>
+            <label><input type="radio" name="q29" value="c"> c) responded</label>
+        </div>
+        <div class="question" id="question-30">
+            <p>30. Складіть одне речення (Type 3): The developer ignored the compiler warnings. The application crashed during the live demo.</p>
+            <input type="text" name="q30" placeholder="If...">
+        <button type="submit">Submit Answers</button>
+    </form>
+    </div>
+
+    <script>
+        function applyTheme(isDark) {
+            const body = document.body;
+            const container = document.getElementById('mainContainer');
+            const infoBox = document.getElementById('infoBox');
+            const h1_h2_h3s = document.querySelectorAll('h1, h2, h3');
+            const questions = document.querySelectorAll('.question');
+            const inputs = document.querySelectorAll('input[type="text"]');
+            
+            if (isDark) {
+                body.style.backgroundColor = '#121212';
+                body.style.color = '#cccccc';
+                container.style.backgroundColor = '#1e1e1e';
+                container.style.boxShadow = '0 2px 10px rgba(255,255,255,0.05)';
+                infoBox.style.backgroundColor = '#2a2a2a';
+                
+                h1_h2_h3s.forEach(h => h.style.color = '#ffffff');
+                questions.forEach(q => {
+                    q.style.backgroundColor = '#2a2a2a';
+                    q.style.borderLeftColor = '#555';
+                });
+                inputs.forEach(i => {
+                    i.style.backgroundColor = '#333';
+                    i.style.color = '#fff';
+                    i.style.borderColor = '#555';
+                });
+            } else {
+                body.style.backgroundColor = '#f4f7f6';
+                body.style.color = '#333';
+                container.style.backgroundColor = '#fff';
+                container.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+                infoBox.style.backgroundColor = '#eaf2f8';
+                
+                h1_h2_h3s.forEach(h => h.style.color = '#2c3e50');
+                questions.forEach(q => {
+                    q.style.backgroundColor = '#fff';
+                    q.style.borderLeftColor = '#bdc3c7';
+                });
+                inputs.forEach(i => {
+                    i.style.backgroundColor = 'white';
+                    i.style.color = 'black';
+                    i.style.borderColor = '#ccc';
+                });
+            }
+        }
+
+        function toggleTheme() {
+            let currentTheme = localStorage.getItem('theme') || 'light';
+            let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme === 'dark');
+        }
+
+        // Apply on load
+        if (localStorage.getItem('theme') === 'dark') {
+            applyTheme(true);
+        }
+        
+        async function autoFillTest(studentId) {
+            try {
+                const response = await fetch(`/api/answers/${studentId}`);
+                if (!response.ok) return;
+                const data = await response.json();
+                
+                // Fill metadata
+                document.querySelector('input[name="student_name"]').value = "DEV Auto-Tester";
+                document.querySelector('input[name="student_group"]').value = "DEV-01";
+                
+                // Fill questions
+                for (const [qName, answer] of Object.entries(data)) {
+                    // Try to find a radio button with exact value
+                    const radio = document.querySelector(`input[name="${qName}"][value="${answer}"]`);
+                    if (radio) {
+                        radio.checked = true;
+                    } else {
+                        // Otherwise try to find a text input
+                        const textInput = document.querySelector(`input[name="${qName}"][type="text"]`);
+                        if (textInput) {
+                            textInput.value = answer;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Auto-fill failed", e);
+            }
+        }
+    </script>
+</body>
+</html>

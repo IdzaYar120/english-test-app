@@ -38,6 +38,14 @@ def save_result(student_id, student_name, student_group, score, total):
 def index():
     return render_template('index.html')
 
+@app.route('/api/answers/<student_id>', methods=['GET'])
+def get_answers(student_id):
+    # Developer Auto-Fill Route
+    correct_answers = load_answers(student_id)
+    if not correct_answers:
+        return {"error": "Key not found"}, 404
+    return correct_answers
+
 @app.route('/test/<student_id>', methods=['GET', 'POST'])
 def show_test(student_id):
     if request.method == 'POST':

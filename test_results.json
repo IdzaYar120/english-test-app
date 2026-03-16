@@ -1,0 +1,37 @@
+[
+    {
+        "student_id": "denys",
+        "student_name": "Denys Tester",
+        "student_group": "QA-01",
+        "score": 3,
+        "total": 30
+    },
+    {
+        "student_id": "sasha",
+        "student_name": "DEV Auto-Tester",
+        "student_group": "DEV-01",
+        "score": 29,
+        "total": 30
+    },
+    {
+        "student_id": "yevhen",
+        "student_name": "DEV Auto-Tester",
+        "student_group": "DEV-01",
+        "score": 30,
+        "total": 30
+    },
+    {
+        "student_id": "denys",
+        "student_name": "DEV Auto-Tester",
+        "student_group": "DEV-01",
+        "score": 30,
+        "total": 30
+    },
+    {
+        "student_id": "sasha",
+        "student_name": "DEV Auto-Tester",
+        "student_group": "DEV-01",
+        "score": 30,
+        "total": 30
+    }
+]
