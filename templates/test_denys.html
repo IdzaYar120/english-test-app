@@ -237,12 +237,16 @@
                 body.style.color = '#cccccc';
                 container.style.backgroundColor = '#1e1e1e';
                 container.style.boxShadow = '0 2px 10px rgba(255,255,255,0.05)';
-                infoBox.style.backgroundColor = '#2a2a2a';
+                if (infoBox) {
+                    infoBox.style.backgroundColor = '#2a2a2a';
+                    infoBox.style.color = '#e2e8f0';
+                }
                 
                 h1_h2_h3s.forEach(h => h.style.color = '#ffffff');
                 questions.forEach(q => {
                     q.style.backgroundColor = '#2a2a2a';
                     q.style.borderLeftColor = '#555';
+                    q.style.color = '#e2e8f0';
                 });
                 inputs.forEach(i => {
                     i.style.backgroundColor = '#333';
@@ -254,12 +258,16 @@
                 body.style.color = '#333';
                 container.style.backgroundColor = '#fff';
                 container.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
-                infoBox.style.backgroundColor = '#eaf2f8';
+                if (infoBox) {
+                    infoBox.style.backgroundColor = '#eaf2f8';
+                    infoBox.style.color = '#333';
+                }
                 
                 h1_h2_h3s.forEach(h => h.style.color = '#2c3e50');
                 questions.forEach(q => {
                     q.style.backgroundColor = '#fff';
                     q.style.borderLeftColor = '#bdc3c7';
+                    q.style.color = '#333';
                 });
                 inputs.forEach(i => {
                     i.style.backgroundColor = 'white';
