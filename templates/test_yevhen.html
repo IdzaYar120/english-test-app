@@ -218,7 +218,11 @@
                 }
                 
                 h1_h2s.forEach(h => h.style.color = '#ffffff');
-                questions.forEach(q => q.style.borderColor = '#444');
+                questions.forEach(q => {
+                    q.style.backgroundColor = '#2a2a2a';
+                    q.style.borderColor = '#444';
+                    q.style.color = '#ffffff';
+                });
                 inputs.forEach(i => {
                     i.style.backgroundColor = '#333';
                     i.style.color = '#fff';
@@ -235,7 +239,11 @@
                 }
                 
                 h1_h2s.forEach(h => h.style.color = '#2c3e50');
-                questions.forEach(q => q.style.borderColor = '#eee');
+                questions.forEach(q => {
+                    q.style.backgroundColor = '#fff';
+                    q.style.borderColor = '#eee';
+                    q.style.color = '#000000';
+                });
                 inputs.forEach(i => {
                     i.style.backgroundColor = 'white';
                     i.style.color = 'black';
