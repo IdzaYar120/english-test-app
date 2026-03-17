@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; color: #333; padding: 20px; margin: 0; }
+        .container { width: 95%; max-width: 800px; box-sizing: border-box; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+        .question { background: #fff; padding: 15px 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #bdc3c7; transition: 0.3s; }
+        .options { margin-top: 10px; }
+        label { margin-right: 15px; cursor: pointer; }
+        input[type="text"] { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button[type="submit"] { background-color: #3498db; color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 5px; cursor: pointer; display: block; width: 100%; margin-top: 20px; box-sizing: border-box; }
+        button[type="submit"]:hover { background-color: #2980b9; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #3498db; text-decoration: none; font-weight: bold; }
+        
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; z-index: 100;">🌓</button>
+    <!-- Hidden DEV Tool Auto-Fill Button -->
+    <button onclick="autoFillTest('nikita')" style="position: absolute; top: 60px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; opacity: 0.01; z-index: 100;" title="Dev Autofill">🛠️</button>
+
+    <div class="container" id="mainContainer">
+        <a href="/" class="back-link">← Back to List</a>
+        <h1>English Grammar Final Test</h1>
+    <p>Please answer the following 30 questions. Some require you to choose the correct option (a, b, or c), and others require you to type the correct word or phrase.</p>
+
+    <form action="#" method="POST" autocomplete="off" spellcheck="false" id="grammarTest">
+        <div id="infoBox" style="background: #eaf2f8; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #3498db;">
+            <p style="margin-top: 0;"><strong>Full Name (First, Last):</strong></p>
+            <input type="text" name="student_name" placeholder="E.g., John Doe" required style="margin-bottom: 15px; background: white; color: black; border: 1px solid #ccc;">
+            
+            <p><strong>Group:</strong></p>
+            <input type="text" name="student_group" placeholder="E.g., KN-21" required style="background: white; color: black; border: 1px solid #ccc;">
+        </div>
+
+        <div class="question">
+            <p><b>1.</b> If you freeze water, it ___ into ice. (Zero Conditional)</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a"> a) turn</label>
+                <label><input type="radio" name="q1" value="b"> b) turns</label>
+                <label><input type="radio" name="q1" value="c"> c) turned</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>2.</b> If it rains tomorrow, we ___ (stay) at home. (First Conditional)</p>
+            <input type="text" name="q2" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>3.</b> If I ___ you, I would study harder. (Second Conditional)</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="a"> a) am</label>
+                <label><input type="radio" name="q3" value="b"> b) was</label>
+                <label><input type="radio" name="q3" value="c"> c) were</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>4.</b> If she had studied, she ___ (pass) the exam. (Third Conditional)</p>
+            <input type="text" name="q4" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>5.</b> If I had won the lottery yesterday, I ___ rich now. (Mixed Conditional)</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a"> a) would be</label>
+                <label><input type="radio" name="q5" value="b"> b) will be</label>
+                <label><input type="radio" name="q5" value="c"> c) would have been</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>6.</b> Unless he ___, he will miss the train.</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="a"> a) hurries</label>
+                <label><input type="radio" name="q6" value="b"> b) hurry</label>
+                <label><input type="radio" name="q6" value="c"> c) will hurry</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>7.</b> What would you do if you ___ (see) a ghost? (Second Conditional)</p>
+            <input type="text" name="q7" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>8.</b> We would have gone to the beach if it ___ raining. (Third Conditional)</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="a"> a) hasn't been</label>
+                <label><input type="radio" name="q8" value="b"> b) hadn't been</label>
+                <label><input type="radio" name="q8" value="c"> c) weren't</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>9.</b> If you mix red and blue, you ___ (get) purple. (Zero Conditional)</p>
+            <input type="text" name="q9" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>10.</b> If she had taken my advice, she ___ in trouble today. (Mixed Conditional)</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="a"> a) isn't</label>
+                <label><input type="radio" name="q10" value="b"> b) wouldn't have been</label>
+                <label><input type="radio" name="q10" value="c"> c) wouldn't be</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>11.</b> She usually ___ (drink) coffee in the morning.</p>
+            <input type="text" name="q11" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>12.</b> While I ___, the phone rang.</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="a"> a) read</label>
+                <label><input type="radio" name="q12" value="b"> b) was reading</label>
+                <label><input type="radio" name="q12" value="c"> c) am reading</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>13.</b> I ___ to Paris three times.</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="a"> a) have been</label>
+                <label><input type="radio" name="q13" value="b"> b) was</label>
+                <label><input type="radio" name="q13" value="c"> c) had been</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>14.</b> By next year, I ___ (finish) this project.</p>
+            <input type="text" name="q14" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>15.</b> When we arrived, the movie ___.</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="a"> a) already started</label>
+                <label><input type="radio" name="q15" value="b"> b) had already started</label>
+                <label><input type="radio" name="q15" value="c"> c) has already started</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>16.</b> Look! The boys ___ (play) football in the yard.</p>
+            <input type="text" name="q16" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>17.</b> He ___ a new car last week.</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="a"> a) buy</label>
+                <label><input type="radio" name="q17" value="b"> b) bought</label>
+                <label><input type="radio" name="q17" value="c"> c) has bought</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>18.</b> I think it ___ (rain) tomorrow.</p>
+            <input type="text" name="q18" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>19.</b> She ___ for two hours. Her eyes are red.</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="a"> a) is crying</label>
+                <label><input type="radio" name="q19" value="b"> b) has been crying</label>
+                <label><input type="radio" name="q19" value="c"> c) cries</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>20.</b> This time next week, we ___ (fly) to London.</p>
+            <input type="text" name="q20" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>21.</b> My brother is ___ than me.</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="a"> a) tall</label>
+                <label><input type="radio" name="q21" value="b"> b) taller</label>
+                <label><input type="radio" name="q21" value="c"> c) tallest</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>22.</b> This is the ___ (interesting) book I have ever read.</p>
+            <input type="text" name="q22" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>23.</b> Gold is ___ than silver.</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="a"> a) more expensive</label>
+                <label><input type="radio" name="q23" value="b"> b) expensiver</label>
+                <label><input type="radio" name="q23" value="c"> c) most expensive</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>24.</b> Jupiter is the ___ (large) planet in our solar system.</p>
+            <input type="text" name="q24" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>25.</b> She is as ___ as her sister.</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="a"> a) smart</label>
+                <label><input type="radio" name="q25" value="b"> b) smarter</label>
+                <label><input type="radio" name="q25" value="c"> c) smartest</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>26.</b> The weather today is ___ (bad) than yesterday.</p>
+            <input type="text" name="q26" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>27.</b> That was the ___ movie I've ever seen.</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="a"> a) baddest</label>
+                <label><input type="radio" name="q27" value="b"> b) worse</label>
+                <label><input type="radio" name="q27" value="c"> c) worst</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>28.</b> A cheetah is ___ (fast) than a lion.</p>
+            <input type="text" name="q28" placeholder="Type your answer here">
+        </div>
+
+        <div class="question">
+            <p><b>29.</b> He is the ___ player on the team.</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="a"> a) better</label>
+                <label><input type="radio" name="q29" value="b"> b) best</label>
+                <label><input type="radio" name="q29" value="c"> c) most good</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>30.</b> I am ___ (good) at math than at history.</p>
+            <input type="text" name="q30" placeholder="Type your answer here">
+        </div>
+
+        <button type="submit" style="width: 100%; margin-top: 30px;">Submit Answers</button>
+    </form>
+</div>
+
+<script>
+    function applyTheme(isDark) {
+        const body = document.body;
+        const container = document.getElementById('mainContainer');
+        const infoBox = document.getElementById('infoBox');
+        const h1 = document.querySelector('h1');
+        const questions = document.querySelectorAll('.question');
+        const inputs = document.querySelectorAll('input[type="text"]');
+        
+        if (isDark) {
+            body.style.backgroundColor = '#121212';
+            body.style.color = '#cccccc';
+            container.style.backgroundColor = '#1e1e1e';
+            container.style.boxShadow = '0 4px 20px rgba(255,255,255,0.05)';
+            infoBox.style.backgroundColor = '#2a2a2a';
+            
+            h1.style.color = '#ffffff';
+            h1.style.borderBottomColor = '#1d4ed8'; // Darker blue line
+            
+            questions.forEach(q => {
+                q.style.backgroundColor = '#2a2a2a';
+                q.style.borderColor = '#444';
+            });
+            inputs.forEach(i => {
+                i.style.backgroundColor = '#333';
+                i.style.color = '#fff';
+                i.style.borderColor = '#555';
+            });
+        } else {
+            body.style.backgroundColor = '#f4f7f6';
+            body.style.color = '#333';
+            container.style.backgroundColor = 'white';
+            container.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+            infoBox.style.backgroundColor = '#eaf2f8';
+            
+            h1.style.color = '#2c3e50';
+            h1.style.borderBottomColor = '#3498db';
+            
+            questions.forEach(q => {
+                q.style.backgroundColor = '#fff';
+                q.style.borderColor = '#bdc3c7';
+            });
+            inputs.forEach(i => {
+                i.style.backgroundColor = 'white';
+                i.style.color = 'black';
+                i.style.borderColor = '#ccc';
+            });
+        }
+    }
+
+    function toggleTheme() {
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme === 'dark');
+    }
+
+    // Apply on load
+    if (localStorage.getItem('theme') === 'dark') {
+        applyTheme(true);
+    }
+    
+    async function autoFillTest(studentId) {
+        try {
+            const response = await fetch(`/api/answers/${studentId}`);
+            if (!response.ok) return;
+            const data = await response.json();
+            
+            // Fill metadata
+            document.querySelector('input[name="student_name"]').value = "DEV Auto-Tester";
+            document.querySelector('input[name="student_group"]').value = "DEV-01";
+            
+            // Fill questions
+            for (const [qName, answer] of Object.entries(data)) {
+                // Try to find a radio button
+                const radio = document.querySelector(`input[name="${qName}"][value="${answer}"]`);
+                if (radio) {
+                    radio.checked = true;
+                } else {
+                    // Otherwise try to find a text input
+                    const textInput = document.querySelector(`input[name="${qName}"][type="text"]`);
+                    if (textInput) {
+                        textInput.value = answer;
+                    }
+                }
+            }
+        } catch (e) {
+            console.error("Auto-fill failed", e);
+        }
+    }
+</script>
+</body>
+</html>
