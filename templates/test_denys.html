@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English for Programmers: Tenses & Conditionals</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; padding: 20px; margin: 0; }
-        .container { width: 95%; max-width: 800px; box-sizing: border-box; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h1, h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
-        .question { background: #fff; padding: 15px 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #bdc3c7; transition: 0.3s; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #fce4ec; color: #333; padding: 20px; margin: 0; }
+        .container { width: 95%; max-width: 800px; box-sizing: border-box; margin: 0 auto; background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1, h2 { color: #d81b60; border-bottom: 2px solid #f06292; padding-bottom: 5px; }
+        .question { background: #fff; padding: 15px 20px; margin-bottom: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #f48fb1; transition: 0.3s; }
+        .question:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left-color: #d81b60; }
         .question p { font-weight: bold; margin-top: 0; }
         label { display: block; margin-bottom: 8px; cursor: pointer; }
-        input[type="text"] { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button[type="submit"] { background-color: #3498db; color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 5px; cursor: pointer; display: block; width: 100%; margin-top: 20px; box-sizing: border-box; }
-        button[type="submit"]:hover { background-color: #2980b9; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #3498db; text-decoration: none; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
+        button[type="submit"] { background: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%); color: white; border: none; padding: 14px 25px; font-weight: bold; font-size: 16px; border-radius: 12px; cursor: pointer; display: block; width: 100%; margin-top: 25px; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4); }
+        button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6); }
+        .back-link { display: inline-flex; align-items: center; gap: 5px; margin-bottom: 20px; color: #d81b60; text-decoration: none; font-weight: bold; background: rgba(240, 98, 146, 0.1); padding: 8px 16px; border-radius: 8px; transition: 0.2s; }
+        .back-link:hover { background: rgba(240, 98, 146, 0.2); transform: translateX(-3px); }
         
         @media (max-width: 600px) {
             body { padding: 10px; }
-            .container { padding: 20px; }
+            .container { padding: 20px; border-radius: 10px; }
+            button[type="submit"] { padding: 12px; font-size: 16px; }
         }
     </style>
 </head>
@@ -216,7 +219,7 @@
         <div class="question" id="question-30">
             <p>30. Складіть одне речення (Type 3): The developer ignored the compiler warnings. The application crashed during the live demo.</p>
             <input type="text" name="q30" placeholder="If...">
-        <button type="submit">Submit Answers</button>
+        <button type="submit">✨ Submit Answers</button>
     </form>
     </div>
 

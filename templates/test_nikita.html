@@ -5,31 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Grammar Test</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f7f6; color: #333; padding: 20px; margin: 0; }
-        .container { width: 95%; max-width: 800px; box-sizing: border-box; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
-        .question { background: #fff; padding: 15px 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #bdc3c7; transition: 0.3s; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #e3f2fd; color: #333; padding: 20px; margin: 0; }
+        .container { width: 95%; max-width: 800px; box-sizing: border-box; margin: 0 auto; background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1565c0; border-bottom: 2px solid #64b5f6; padding-bottom: 5px; }
+        .question { background: #fff; padding: 15px 20px; margin-bottom: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #90caf9; transition: 0.3s; }
+        .question:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left-color: #1565c0; }
         .options { margin-top: 10px; }
         label { margin-right: 15px; cursor: pointer; }
-        input[type="text"] { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button[type="submit"] { background-color: #3498db; color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 5px; cursor: pointer; display: block; width: 100%; margin-top: 20px; box-sizing: border-box; }
-        button[type="submit"]:hover { background-color: #2980b9; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #3498db; text-decoration: none; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
+        button[type="submit"] { background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); color: white; border: none; padding: 14px 25px; font-weight: bold; font-size: 16px; border-radius: 12px; cursor: pointer; display: block; width: 100%; margin-top: 25px; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4); }
+        button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6); }
+        .back-link { display: inline-flex; align-items: center; gap: 5px; margin-bottom: 20px; color: #1565c0; text-decoration: none; font-weight: bold; background: rgba(33, 150, 243, 0.1); padding: 8px 16px; border-radius: 8px; transition: 0.2s; }
+        .back-link:hover { background: rgba(33, 150, 243, 0.2); transform: translateX(-3px); }
         
         @media (max-width: 600px) {
             body { padding: 10px; }
-            .container { padding: 20px; }
+            .container { padding: 20px; border-radius: 10px; }
         }
     </style>
 </head>
 <body>
-    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; z-index: 100;">🌓</button>
+    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 28px; background: none; border: none; cursor: pointer; z-index: 100; transition: transform 0.3s ease;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'">🌓</button>
     <!-- Hidden DEV Tool Auto-Fill Button -->
     <button onclick="autoFillTest('nikita')" style="position: absolute; top: 60px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer; opacity: 0.01; z-index: 100;" title="Dev Autofill">🛠️</button>
 
     <div class="container" id="mainContainer">
-        <a href="/" class="back-link">← Back to List</a>
-        <h1>English Grammar Final Test</h1>
+        <a href="/" class="back-link">🔙 Back to List</a>
+        <h1>🚀 Nikita's Final Test</h1>
     <p>Please answer the following 30 questions. Some require you to choose the correct option (a, b, or c), and others require you to type the correct word or phrase.</p>
 
     <form action="#" method="POST" autocomplete="off" spellcheck="false" id="grammarTest">
@@ -255,7 +257,7 @@
             <input type="text" name="q30" placeholder="Type your answer here">
         </div>
 
-        <button type="submit" style="width: 100%; margin-top: 30px;">Submit Answers</button>
+        <button type="submit">✨ Submit Answers</button>
     </form>
 </div>
 

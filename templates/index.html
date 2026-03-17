@@ -5,32 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Tests</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 50px 20px; margin: 0; }
-        .container { width: 90%; max-width: 600px; box-sizing: border-box; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        .btn { display: block; width: 90%; max-width: 400px; box-sizing: border-box; margin: 15px auto; padding: 15px; font-size: 18px; color: white; background-color: #007BFF; text-decoration: none; border-radius: 5px; transition: 0.3s; }
-        .btn:hover { background-color: #0056b3; }
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            text-align: center; 
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 40px 20px; 
+            margin: 0; 
+            color: #333;
+            min-height: 100vh;
+        }
+        .container { 
+            width: 90%; 
+            max-width: 650px; 
+            box-sizing: border-box; 
+            margin: auto; 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        .banner-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            max-height: 250px;
+        }
+        h1 { 
+            color: #1a365d; 
+            font-weight: 800;
+            margin-top: 5px;
+            font-size: 2.2rem;
+        }
+        .subtitle {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        .btn { 
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%; 
+            box-sizing: border-box; 
+            margin: 12px 0; 
+            padding: 16px; 
+            font-size: 18px; 
+            font-weight: 600;
+            color: white; 
+            background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+            text-decoration: none; 
+            border-radius: 12px; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+        }
+        .btn:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.6);
+            background: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
+        }
+        .btn-results {
+            background: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+            box-shadow: 0 4px 15px rgba(67, 233, 123, 0.4);
+            color: #0b4a22;
+        }
+        .btn-results:hover {
+            background: linear-gradient(to right, #38f9d7 0%, #43e97b 100%);
+            box-shadow: 0 8px 25px rgba(67, 233, 123, 0.6);
+        }
         
         @media (max-width: 600px) {
-            body { padding: 20px 10px; }
-            .container { padding: 20px; width: 95%; }
-            .btn { width: 100%; font-size: 16px; padding: 12px; }
+            body { padding: 15px 10px; }
+            .container { padding: 25px 20px; width: 95%; border-radius: 15px; }
+            .btn { font-size: 16px; padding: 14px; }
+            h1 { font-size: 1.8rem; }
+            .banner-img { max-height: 150px; }
         }
     </style>
 </head>
 <body>
-    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; border: none; cursor: pointer;">🌓</button>
+    <button onclick="toggleTheme()" id="themeBtn" style="position: absolute; top: 20px; right: 20px; font-size: 28px; background: none; border: none; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='rotate(15deg)'" onmouseout="this.style.transform='rotate(0deg)'">🌓</button>
     <div class="container" id="mainContainer">
-        <h1>English Language Tests</h1>
-        <p>Choose a student testing module:</p>
-        <a href="/test/yevhen" class="btn">Test: Yevhen</a>
-        <a href="/test/nikita" class="btn">Test: Nikita</a>
-        <a href="/test/sasha" class="btn">Test: Oleksandr</a>
-        <a href="/test/denys" class="btn">Test: Denys</a>
-        <a href="/test/illia" class="btn">Test: Illia</a>
+        <img src="/static/english_banner.png" alt="English Learning Banner" class="banner-img" onerror="this.style.display='none'">
+        <h1>English Language Tests 🇬🇧</h1>
+        <p class="subtitle">Choose a student testing module below to begin assessing grammar and vocabulary skills.</p>
         
-        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd;" id="separator">
-        <a href="/results" class="btn" style="background-color: #28a745;">📋 View Results</a>
+        <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 20px;">
+            <a href="/test/yevhen" class="btn"><span>👨‍💻</span> Test: Yevhen</a>
+            <a href="/test/nikita" class="btn"><span>🚀</span> Test: Nikita</a>
+            <a href="/test/sasha" class="btn"><span>💡</span> Test: Oleksandr</a>
+            <a href="/test/denys" class="btn"><span>🎯</span> Test: Denys</a>
+            <a href="/test/illia" class="btn"><span>⚡</span> Test: Illia</a>
+        </div>
+        
+        <hr style="margin: 35px 0 25px 0; border: 0; border-top: 2px dashed rgba(0,0,0,0.1);" id="separator">
+        <a href="/results" class="btn btn-results">🏆 View Test Results 🏆</a>
     </div>
 
     <script>
@@ -38,20 +111,25 @@
             const body = document.body;
             const container = document.getElementById('mainContainer');
             const h1 = document.querySelector('h1');
-            const p = document.querySelector('p');
+            const p = document.querySelector('.subtitle');
+            const sep = document.getElementById('separator');
             
             if (isDark) {
-                body.style.backgroundColor = '#121212';
-                container.style.backgroundColor = '#1e1e1e';
-                container.style.boxShadow = '0 4px 8px rgba(255,255,255,0.05)';
-                h1.style.color = '#ffffff';
-                p.style.color = '#cccccc';
+                body.style.background = 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)';
+                container.style.backgroundColor = 'rgba(30, 30, 30, 0.85)';
+                container.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+                container.style.borderColor = 'rgba(255,255,255,0.1)';
+                h1.style.color = '#e2e8f0';
+                p.style.color = '#cbd5e1';
+                sep.style.borderTopColor = 'rgba(255,255,255,0.1)';
             } else {
-                body.style.backgroundColor = '#f4f4f9';
-                container.style.backgroundColor = 'white';
-                container.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-                h1.style.color = '#333';
-                p.style.color = '#000000';
+                body.style.background = 'linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)';
+                container.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                container.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
+                container.style.borderColor = 'rgba(255,255,255,0.4)';
+                h1.style.color = '#1a365d';
+                p.style.color = '#4a5568';
+                sep.style.borderTopColor = 'rgba(0,0,0,0.1)';
             }
         }
 
