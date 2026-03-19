@@ -325,10 +325,6 @@
             if (!response.ok) return;
             const data = await response.json();
             
-            // Fill metadata
-            document.querySelector('input[name="student_name"]').value = "DEV Auto-Tester";
-            document.querySelector('input[name="student_group"]').value = "DEV-01";
-            
             // Fill questions
             for (const [qName, answer] of Object.entries(data)) {
                 // Try to find a radio button
